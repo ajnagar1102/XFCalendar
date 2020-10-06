@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFCalendar.Views.CalenderView">
+  <ContentView.Content>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="HeaderGrid" Grid.Row="0" BackgroundColor="White">
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Image x:Name="leftArrow" Source="arrow" HeightRequest="25" WidthRequest="25">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="leftArrow_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label x:Name="HeaderLbl" Text="Octuber" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="18">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Header_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Image x:Name="rightArrow" Source="arrow" Rotation="180" HeightRequest="25" WidthRequest="25">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="RightArrow_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Grid>
+            <Grid x:Name="MonthGrid" Grid.Row="1" IsVisible="False"/>
+            <Grid x:Name="YearsGrid" Grid.Row="2" IsVisible="False">
+                <CollectionView x:Name="yearsCollectioview"
+                                SelectionMode="Single"
+                                SelectionChanged="Year_selectionChanegd">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10,10">
+                                <Label Text="{Binding year}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   TextColor="{Binding yearColor}"
+                                   FontSize="{Binding fontSize}"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+            <Grid x:Name="DatesGrid" Grid.Row="3" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>
