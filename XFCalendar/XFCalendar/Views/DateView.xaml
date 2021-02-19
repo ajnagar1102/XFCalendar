@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="XFCalendar.Views.DateView"
+       x:Name="Root"
+       Padding="5"
+       HeightRequest="35"
+       WidthRequest="35"
+       HasShadow="False"
+       CornerRadius="100"
+       VerticalOptions="Center" 
+       HorizontalOptions="Center"
+       BackgroundColor="Transparent">
+    <StackLayout Orientation="Vertical" 
+                 Spacing="1"
+                 Padding="0"
+                 Margin="0"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center">
+        <Label x:Name="DateLabel"
+               FontSize="14"
+               Text="{Binding Source={x:Reference Root}, Path=Date}" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <BoxView x:Name="ApptIndicatorBox"  
+                 HeightRequest="4"
+                 WidthRequest="4" 
+                 CornerRadius="3" 
+                 BackgroundColor="DarkGreen" 
+                 VerticalOptions="Center" 
+                 HorizontalOptions="Center" Margin="0.7,0,0,0"/>
+    </StackLayout>
+</Frame>

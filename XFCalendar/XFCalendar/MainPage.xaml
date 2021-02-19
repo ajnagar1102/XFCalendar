@@ -5,7 +5,8 @@
              x:Class="XFCalendar.MainPage">
 
     <StackLayout >
-        <calendar:CalenderView HeightRequest="100" />
+        <calendar:NewCalendarView />
+        <Label Text="tesdf"/>
     </StackLayout>
 
 </ContentPage>
